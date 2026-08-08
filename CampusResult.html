@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Campus Result</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+  	.brandname{
+  		background: linear-gradient(to left, purple, deeppink);
+  		padding: 20px;
+        text-align: center;
+        color: white;
+  	}
+    .card-header{
+        background: linear-gradient(to left, gold, limegreen);
+    }
+  </style>
+
+  <script>
+      function total_mark()
+      {
+        var apty=parseInt(document.f1.apty.value);
+        var tech=parseInt(document.f1.tech.value);
+        var hr=parseInt(document.f1.hr.value);
+        var tech_f2f=parseInt(document.f1.tech_f2f.value);
+
+        tm=apty+tech+hr+tech_f2f;
+        per=tm/4;
+
+        document.f1.tot_score.value=tm;
+        document.f1.per.value=per;
+
+        if(apty>=40 && tech>=50 && hr>=6 && tech_f2f>=14)
+        {
+            document.f1.result.value="Selected";
+        }
+        else
+        {
+            document.f1.result.value="Rejected";
+        }
+      }
+  </script>
+
+</head>
+<body>
+
+	<div class="brandname">
+		<h2>MIT COLLEGE</h2>
+	</div>
+
+	<div class="container mt-4">
+        <form name="f1">
+		  <div class="row">
+
+            <div class="col-sm-6">
+                <div class="card">
+
+            <div class="card-header">
+			    <h3>Campus Result</h3>
+            </div>
+				
+            <div class="card-body">
+
+					<div class="form-group col-sm-6">
+						<label>Student Name</label>
+						<input type="text" name="s_name" class="form-control">
+					</div>
+
+					<div class="form-group col-sm-6">
+						<label>Student Branch</label>
+						<input type="text" name="branch" class="form-control">
+					</div>
+
+					<div class="form-group col-sm-6">
+						<label>Apty</label>
+						<input type="number" name="apty" min="1" max="50" class="form-control">
+					</div>
+
+					<div class="form-group col-sm-6">
+						<label>Tech</label>
+						<input type="number" name="tech" min="1" max="70" class="form-control">
+					</div>
+
+					<div class="form-group col-sm-6">
+						<label>HR</label>
+						<input type="number" name="hr" min="1" max="10" class="form-control">
+					</div>
+
+					<div class="form-group col-sm-6">
+						<label>Tech F2F</label>
+						<input type="number" name="tech_f2f" min="1" max="20" class="form-control">
+					</div>
+
+			</div>  <!--end of card body-->
+
+            <div class="card-footer">
+                <button type="button" class="btn btn-success" onclick="total_mark()">Result</button>
+                <button type="reset" class="btn btn-warning">Reset</button>
+            </div>
+        </div>  <!-- end of card-->
+    </div>
+
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header">
+                       <h3>Campus Performance</h3>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Total Score</label>
+                            <input type="number" name="tot_score" class="form-control" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Percentage</label>
+                            <input type="number" name="per" class="form-control" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Result</label>
+                            <input type="text" name="result" class="form-control" disabled>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+
+                </div>
+            </div>
+          </div>
+        </form>
+    </div>
+
+</body>
+</html>
